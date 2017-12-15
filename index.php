@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="enfr">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -12,10 +12,27 @@
 <body>
     <h1>ToDoList</h1>
 
+    <?php
+
+    include ('classes/Todo.php');
+    
+    $test1 = new Todo('Test1',true);
+    $test2 = new Todo('Test2',false);
+
+    $tab =[$test1,$test2];
+    // foreach($tab as $todo){
+    //    echo $todo->getText();
+    // }
+
+
+foreach($tab as $todo){
+    ?>
+   
+
     <section>
         <form action="forms/uptadeTodo.php" method="post" id="form1">
             <input type="checkbox" name="upDate">
-            <input type="text" name="List" placeholder="List" />
+            <input type="text" name="List" value="<?php echo $todo->getText(); ?>" />
 
             <i class="fa fa-toggle-on" aria-hidden="true">
                 <input type="button" />
@@ -31,6 +48,7 @@
             </div>
 
         </form>
+        <?php  }  ?>
 
         <form action="forms/addTodo.php" method="post" id="form3">
             <input type="textarea" name="Add">
