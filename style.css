@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box
+}
+
+section{
+height: 139px;
+width: 409px;
+/*background: pink;*/
+margin: auto;
+
+}
+
+#form1{
+    height: 58px;
+    width: 362px;
+    border: 2px solid black;
+}
+
+#form2{
+    height: 28px;
+    width: 150px;
+    /*border: 2px solid red;*/
+}
+
+#form3{
+    height: 58px;
+    width: 362px;
+    border: 2px solid black;
+}
