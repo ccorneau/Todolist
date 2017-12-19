@@ -15,21 +15,37 @@
     <?php
 
     include ('classes/Todo.php');
+    include ('classes/Db.php');
+
     
-    $test1 = new Todo('Test1',true);
-    $test2 = new Todo('Test2',false);
+    $Test1 = new Todo('Test1', true, 'erkgejgerij'); // Id automatique
+    //$Test1 = new Todo('Test1', true, 'erkgejgerij'); // Id en paramètre    
+    $Test2 = new Todo('Test2',false);
+    $Test3 = new Todo('Test3',true,'Amaria');
+    $Test4 = new Todo('Test4',true,'HEYYY');
 
-    $tab =[$test1,$test2];
-    // foreach($tab as $todo){
-    //    echo $todo->getText();
-    // }
+    // Mise dans un tableau
+    $arrayTodo = [];
+    array_push($arrayTodo, $Test1);
+    array_push($arrayTodo, $Test2);
+    array_push($arrayTodo, $Test3);
+    array_push($arrayTodo, $Test4);
+
+    var_dump($arrayTodo);
 
 
-foreach($tab as $todo){
-    ?>
+    $Test4->delete($arrayTodo);
    
 
+    echo '<br /><br /><br />';
+
+    var_dump($arrayTodo);
+
+foreach($arrayTodo as $todo){
+    ?>
+
     <section>
+
         <form action="forms/uptadeTodo.php" method="post" id="form1">
             <input type="checkbox" name="upDate">
             <input type="text" name="List" value="<?php echo $todo->getText(); ?>" />
@@ -38,9 +54,10 @@ foreach($tab as $todo){
                 <input type="button" />
             </i>
 
+
             <div id="form2">
-                <form action="forms/deleteTodo.php" method="post" >
-            
+                <form action="forms/deleteTodo.php" method="post">
+
                     <i class="fa fa-trash" aria-hidden="true">
                         <input type="button" />
                     </i>

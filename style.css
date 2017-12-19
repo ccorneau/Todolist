@@ -4,26 +4,29 @@ body{
 }
 
 *{
-    box-sizing: border-box
+    box-sizing: border-box;
 }
+
 
 section{
 height: 139px;
 width: 409px;
 /*background: pink;*/
 margin: auto;
-
+border-radius: 6%;
 }
 
 #form1{
     height: 58px;
     width: 362px;
     border: 2px solid black;
+    display: flex;
+    border-radius: 8%;
 }
 
 #form2{
     height: 28px;
-    width: 150px;
+    width: 80px;
     /*border: 2px solid red;*/
 }
 
@@ -31,4 +34,5 @@ margin: auto;
     height: 58px;
     width: 362px;
     border: 2px solid black;
+    border-radius: 8%;
 }
