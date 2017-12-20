@@ -41,21 +41,27 @@ class Todo
 	
 
 	public function save() {
-		
+		$db = new DB;
+		$db->save($this);
+	}
+
+	public function delete (&$arrayTodo) {
+		$db = new DB;
+		$db->delete($this);
 	}
 
 	/*public function delete (&$arrayTodo){
 		$db = new Db();
 	}*/
 
-	public function delete (&$arrayTodo) {
-        // Suppression de la todo = id dans le tableau
-        foreach ($arrayTodo as $key => $todo) {
-            if ($todo->getId() == $this->id) {
-                unset($arrayTodo[$key]);
-            }
-        }
-    }
+	// public function delete (&$arrayTodo) {
+    //     // Suppression de la todo = id dans le tableau
+    //     foreach ($arrayTodo as $key => $todo) {
+    //         if ($todo->getId() == $this->id) {
+    //             unset($arrayTodo[$key]);
+    //         }
+    //     }
+    // }
 
 }
 

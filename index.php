@@ -34,7 +34,7 @@
     var_dump($arrayTodo);
 
 
-    $Test4->delete($arrayTodo);
+    // $Test4->delete($arrayTodo);
    
 
     echo '<br /><br /><br />';
@@ -42,25 +42,26 @@
     var_dump($arrayTodo);
 
 foreach($arrayTodo as $todo){
+
     ?>
 
     <section>
 
         <form action="forms/uptadeTodo.php" method="post" id="form1">
-            <input type="checkbox" name="upDate">
+            <input type="checkbox" id="squaredTwo" name="upDate">
             <input type="text" name="List" value="<?php echo $todo->getText(); ?>" />
-
-            <i class="fa fa-toggle-on" aria-hidden="true">
-                <input type="button" />
-            </i>
+            <input  type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
+            <!-- <i class="fa fa-toggle-on" aria-hidden="true">
+                <input type="button" /> 
+            </i>-->
 
 
             <div id="form2">
                 <form action="forms/deleteTodo.php" method="post">
-
-                    <i class="fa fa-trash" aria-hidden="true">
+                <input  type="image" src="img/poubelle.png" value="submit" name="trash" width="30px" heigth="30px"/>
+                    <!--<i class="fa fa-trash" aria-hidden="true">
                         <input type="button" />
-                    </i>
+                    </i>-->
                 </form>
             </div>
 
@@ -68,9 +69,8 @@ foreach($arrayTodo as $todo){
         <?php  }  ?>
 
         <form action="forms/addTodo.php" method="post" id="form3">
-            <input type="textarea" name="Add">
-            <i class="fa fa-floppy-o" aria-hidden="true">
-                <input type="button" />
+            <input type="textarea" name="text">
+            <input  type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
             </i>
         </form>
     </section>
