@@ -16,41 +16,21 @@
 
     include ('classes/Todo.php');
     include ('classes/Db.php');
+    include ('db/config.php');
 
-    
-    $Test1 = new Todo('Test1', true, 'erkgejgerij'); // Id automatique
-    //$Test1 = new Todo('Test1', true, 'erkgejgerij'); // Id en paramètre    
-    $Test2 = new Todo('Test2',false);
-    $Test3 = new Todo('Test3',true,'Amaria');
-    $Test4 = new Todo('Test4',true,'HEYYY');
+    $baa = $bdd->query('SELECT * FROM todolist');
+    $resultat = $baa->fetchAll();
 
-    // Mise dans un tableau
-    $arrayTodo = [];
-    array_push($arrayTodo, $Test1);
-    array_push($arrayTodo, $Test2);
-    array_push($arrayTodo, $Test3);
-    array_push($arrayTodo, $Test4);
-
-    var_dump($arrayTodo);
-
-
-    // $Test4->delete($arrayTodo);
-   
-
-    echo '<br /><br /><br />';
-
-    var_dump($arrayTodo);
-
-foreach($arrayTodo as $todo){
+foreach($resultat as $todo){
 
     ?>
 
     <section>
 
-        <form action="forms/uptadeTodo.php" method="post" id="form1">
-            <input type="checkbox" id="squaredTwo" name="upDate">
-            <input type="text" name="List" value="<?php echo $todo->getText(); ?>" />
-            <input  type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
+        <form action="forms/uptadeTodo.php" method="post" id="form1"> <br>
+            <input type="checkbox" id="squaredTwo" name="upDate"> <br>
+            <input class="inputtext" type="text" name="List" value="<?php echo $todo['text']; ?>" />
+            <input class="imgbutton" type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
             <!-- <i class="fa fa-toggle-on" aria-hidden="true">
                 <input type="button" /> 
             </i>-->
@@ -58,8 +38,9 @@ foreach($arrayTodo as $todo){
 
             <div id="form2">
                 <form action="forms/deleteTodo.php" method="post">
-                <input  type="image" src="img/poubelle.png" value="submit" name="trash" width="30px" heigth="30px"/>
-                    <!--<i class="fa fa-trash" aria-hidden="true">
+                <input class="imgbutton" type="image" src="img/poubelle.png" value="submit" name="trash" width="30px" heigth="30px"/>
+                <input type="hidden" name="idtodo" value"">    
+                <!--<i class="fa fa-trash" aria-hidden="true">
                         <input type="button" />
                     </i>-->
                 </form>
@@ -69,8 +50,8 @@ foreach($arrayTodo as $todo){
         <?php  }  ?>
 
         <form action="forms/addTodo.php" method="post" id="form3">
-            <input type="textarea" name="text">
-            <input  type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
+            <input class="inputadd" type="textarea" name="text">
+            <input class="imgbutton" type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
             </i>
         </form>
     </section>
