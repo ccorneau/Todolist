@@ -22,32 +22,29 @@
     $resultat = $baa->fetchAll();
     
 foreach($resultat as $todo){
-
     ?>
 
     <section>
-
+<div id="containerTodo">
         <form action="forms/updateTodo.php" method="post" id="form1"> <br>
-            <input type="checkbox" id="squaredTwo" name="upDate"> <br>
+            <input type="checkbox" id="squaredTwo" name="check"> <br>
             <input class="inputtext" type="text" name="text" value="<?php echo $todo['text']; ?>" />
             <input class="imgbutton" type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
             <input type="hidden" name="idtodo" value="<?php echo $todo['id']; ?>"/>
-
-            </form>
-            <div id="form2">
+        </form>
+            
                 <form action="forms/deleteTodo.php" method="post">
-                <input class="imgbutton" type="image" src="img/poubelle.png" value="submit" name="trash" width="30px" heigth="30px"/>
+                <input class="imgpoubelle" type="image" src="img/poubelle.png" value="submit" name="trash" width="30px" heigth="30px"/>
                 <input type="hidden" name="idtodo" value="<?php echo $todo['id']; ?>">    
+                
                 </form>
-            </div>
-
-        
+            
+</div>
         <?php  }  ?>
 
         <form action="forms/addTodo.php" method="post" id="form3">
             <input class="inputadd" type="textarea" name="text">
-            <input class="imgbutton" type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
-            </i>
+            <input class="imgadd" type="image" src="img/save.png" value="submit" name="save" width="30px" heigth="30px"/>
         </form>
     </section>
 </body>
