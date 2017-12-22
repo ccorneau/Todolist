@@ -20,6 +20,8 @@ class DB {
         $database = 'todolist';
         $bdd = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $password);
         $request = $bdd->prepare('DELETE FROM todolist WHERE id=:id');
+        $request->execute(['id'=>$id]);
+        $text = $request->fetchAll();
     }
 
     static function update($id,$text){
@@ -32,19 +34,7 @@ class DB {
         $request->execute(['text'=>$text,'id'=>$id]);
         $text = $request->fetchAll();
     }
-    // static function writeData($data, $filename = "../db/todos.txt") {
-    //     $data = serialize($data);
-    //     file_put_contents($filename, $data);
-    // }
 
-    
-    // static function readData($filename = "../db/todos.txt") {
-    //     $data = file_get_contents($filename);
-    //     $data = unserialize($data);
-    //     //$todos[] = $newtodo;
-    //     //array_push($arrayTodo, $todo);
-    //     return $data;
-    // }
 }
 
 ?>
