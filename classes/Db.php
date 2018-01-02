@@ -23,7 +23,7 @@ class DB {
         $request->execute(['id'=>$id]);
         $text = $request->fetchAll();
     }
-
+// ajout done en INT
     static function update($id,$text){
         $user = 'root';
         $password = 'losangeles';
