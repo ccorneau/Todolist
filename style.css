@@ -94,6 +94,10 @@ h1 span {
     margin: auto;
     
 }
+input:checked + .inputtext {
+	text-decoration: line-through;
+	color: grey;
+}
 .inputtext {
     width: 275px;
     height: 30px;
