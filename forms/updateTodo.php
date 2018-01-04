@@ -4,6 +4,7 @@ include('../classes/Db.php');
 include('../classes/Todo.php');
 include('../db/config.php');
 
+$bdd = connect();
 $id = $_POST['idtodo'];
 $text = $_POST['text'];
 $check = (int) isset($_POST['check']);
